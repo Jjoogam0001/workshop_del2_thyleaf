@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="home.css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+</head>
+<body>
+<h2> This the contact List</h2>
+
+<div>
+    <form method="post" th:action="@{/contact}">
+        <div class="form-group">
+            <label>Message:</label>
+            <input class="form-control" type="text" id="contact" name="contact" placeholder="Enter a contact..">
+        </div>
+
+        <input class="btn btn-success" type="submit" value="Submit"/>
+
+    </form>
+
+<div th:if="${contacts}">
+    <p> No contacts available</p>
+
+</div>
+    <div>
+        <ul class = "list-group" th:each="contact: ${contacts}"></ul>
+        <li class="list-group-item" th:text="${contacts}"></li>
+        <p th:text="${contacts}"></p>
+
+
+
+    </div>
+
+
+</div>
+
+
+</body>
+</html>
